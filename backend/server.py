@@ -64,5 +64,7 @@ for route in list(app.router.routes()):
     cors.add(route)
 
 if __name__ == '__main__':
-    print("Starting token server on port 8080...")
-    web.run_app(app, host='0.0.0.0', port=8080)
+    port = int(os.environ.get('PORT', 8080))
+    print(f"Starting token server on port {port}...")
+    web.run_app(app, host='0.0.0.0', port=port)
+
