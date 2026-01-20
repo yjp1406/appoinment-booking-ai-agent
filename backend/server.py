@@ -48,11 +48,17 @@ async def get_summary(request):
             return web.json_response(data)
     return web.json_response({'error': 'No summary found'}, status=404)
 
+async def health_check(request):
+    return web.Response(text="OK")
+
 app = web.Application()
 app.add_routes([
+    web.get('/', health_check),
     web.get('/api/token', get_token),
     web.get('/api/summary', get_summary)
 ])
+
+# Configure CORS
 cors = aiohttp_cors.setup(app, defaults={
     "*": aiohttp_cors.ResourceOptions(
         allow_credentials=True,
@@ -60,11 +66,14 @@ cors = aiohttp_cors.setup(app, defaults={
         allow_headers="*",
     )
 })
+
 for route in list(app.router.routes()):
     cors.add(route)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))
     print(f"Starting token server on port {port}...")
+    for route in app.router.routes():
+        print(f"Registered route: {route}")
     web.run_app(app, host='0.0.0.0', port=port)
 
