@@ -1,0 +1,21 @@
+# Python dependencies
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/latest_summary.json
+backend/mock_db.json
+
+# Node dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Environment Variables
+.env
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# OS Files
+.DS_Store
+Thumbs.db
