@@ -50,8 +50,8 @@ export default function App() {
     setIsCalling(true);
     try {
       // Mocking token fetch
-      console.log("Fetching token from /api/token...");
-      const res = await fetch('/api/token');
+      console.log("Fetching token from backend...");
+      const res = await fetch('https://appoinment-booking-ai-agent.onrender.com/api/token');
       const data = await res.json();
       setToken(data.token);
     } catch (e) {
@@ -72,7 +72,7 @@ export default function App() {
   const generateSummary = async (retries = 5) => {
     try {
       console.log(`Fetching summary (attempts left: ${retries})...`);
-      const res = await fetch('/api/summary');
+      const res = await fetch('https://appoinment-booking-ai-agent.onrender.com/api/summary');
       if (res.ok) {
         const data = await res.json();
         setCallSummary(data);
