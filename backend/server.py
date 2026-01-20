@@ -1,4 +1,7 @@
 import os
+print("--- STARTING SERVER.PY ---")
+print(f"Current Directory: {os.getcwd()}")
+
 from aiohttp import web
 from livekit import api
 from dotenv import load_dotenv
