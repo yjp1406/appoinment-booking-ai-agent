@@ -21,8 +21,6 @@ function AgentDisconnectListener({ onDisconnect }: { onDisconnect: () => void })
   const [hadAgent, setHadAgent] = useState(false);
 
   useEffect(() => {
-    // Look for any participant that isn't the local user. 
-    // In this app, only the AI and the user are present.
     const hasAgent = participants.length > 0;
 
     if (hasAgent) {
