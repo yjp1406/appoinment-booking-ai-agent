@@ -52,7 +52,7 @@ async def get_summary(request):
     return web.json_response({'error': 'No summary found'}, status=404)
 
 async def health_check(request):
-    return web.Response(text="OK")
+    return web.Response(text="SERVER.PY IS RUNNING")
 
 app = web.Application()
 app.add_routes([
