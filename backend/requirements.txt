@@ -7,3 +7,4 @@ livekit==1.0.23
 supabase
 python-dotenv
 aiohttp
+gunicorn
